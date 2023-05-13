@@ -3,12 +3,33 @@
  */
 package teaql.demo;
 
-import org.junit.Test;
-import static org.junit.Assert.*;
+import com.doublechaintech.todo.TodoUserContext;
+import io.teaql.data.TQLContext;
+import io.teaql.data.TQLContextResolver;
+import io.teaql.data.UserContext;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+
+
+import org.junit.runner.RunWith;
+
+import org.springframework.test.context.junit4.SpringRunner;
+
+import static org.springframework.test.util.AssertionErrors.assertNotNull;
+
+
+@RunWith(SpringRunner.class)
+@ExtendWith(TestContextResolver.class)
 
 public class AppTest {
-    @Test public void appHasAGreeting() {
-        App classUnderTest = new App();
-        assertNotNull("app should have a greeting", classUnderTest.getGreeting());
+    @Test
+    public void appHasAGreeting(@TQLContext TodoUserContext context) throws Exception {
+
+        System.out.println(context);
+        //mvc.perform(get("/search2"));
+
+        DemoController demoController = new DemoController();
+        assertNotNull("app should have a greeting", demoController.get(context));
     }
 }

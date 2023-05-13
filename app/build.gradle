@@ -37,7 +37,14 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
-    implementation 'com.doublechaintech:todo-core-postgres:2023-05-12-10-10-10'
+    implementation 'com.doublechaintech:todo-core-postgres:126'
+
+    implementation 'io.teaql:teaql-spring-boot-starter:1.15-SNAPSHOT'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+
+
 
 }
 
