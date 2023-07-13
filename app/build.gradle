@@ -27,6 +27,14 @@ repositories {
             password = System.getenv("GITHUB_TOKEN")
         }
     }
+    maven {
+        url = uri("https://maven.pkg.github.com/doublechaintech/cmes-pg-lib")
+        credentials {
+            username = System.getenv("GITHUB_ACTOR")
+            password = System.getenv("GITHUB_TOKEN")
+        }
+    }
+
 
 }
 
@@ -37,9 +45,12 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
-    implementation 'com.doublechaintech:todo-core-postgres:126'
+    implementation 'com.doublechaintech:cmes-core-postgres:112'
 
-    implementation 'io.teaql:teaql-spring-boot-starter:1.15-SNAPSHOT'
+
+
+
+
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
